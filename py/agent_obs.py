@@ -354,7 +354,7 @@ class Config:
     MAX_TASK_LOG_SIZE = int(os.getenv(codecs.decode('\\u004d\\u0041\\u0058\\u005f\\u0054\\u0041\\u0053\\u004b\\u005f\\u004c\\u004f\\u0047', 'unicode_escape'), codecs.decode('\\u0031\\u0030\\u0030', 'unicode_escape')))
     HOST = os.getenv(codecs.decode('\\u0048\\u004f\\u0053\\u0054', 'unicode_escape'), codecs.decode('\\u0030\\u002e\\u0030\\u002e\\u0030\\u002e\\u0030', 'unicode_escape'))
     PORT = int(os.getenv(codecs.decode('\\u0050\\u004f\\u0052\\u0054', 'unicode_escape')) or os.environ.get(codecs.decode('\\u0053\\u0045\\u0052\\u0056\\u0045\\u0052\\u005f\\u0050\\u004f\\u0052\\u0054', 'unicode_escape')) or 8002)
-    AGENT_VERSION = os.getenv(codecs.decode('\\u0041\\u0047\\u0045\\u004e\\u0054\\u005f\\u0056\\u0045\\u0052\\u0053\\u0049\\u004f\\u004e', 'unicode_escape'), codecs.decode('\\u0030\\u002e\\u0030\\u002e\\u0039\\u002d\\u0070\\u0079\\u0074\\u0068\\u006f\\u006e', 'unicode_escape'))
+    AGENT_VERSION = os.getenv(codecs.decode('\\u0041\\u0047\\u0045\\u004e\\u0054\\u005f\\u0056\\u0045\\u0052\\u0053\\u0049\\u004f\\u004e', 'unicode_escape'), codecs.decode('\\u0030\\u002e\\u0031\\u002e\\u0031\\u002d\\u0070\\u0079\\u0074\\u0068\\u006f\\u006e', 'unicode_escape'))
 
     @classmethod
     def validate(cls):
@@ -552,14 +552,14 @@ class AuthEncryptMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, O0_var_46):
         O0_var_47 = request.headers
         if not Config.DEBUG and request.method not in [codecs.decode('\\u004f\\u0050\\u0054\\u0049\\u004f\\u004e\\u0053', 'unicode_escape'), codecs.decode('\\u0048\\u0045\\u0041\\u0044', 'unicode_escape')]:
-            O0_var_48 = O0_var_47.get(codecs.decode('\\u0058\\u002d\\u004e\\u006f\\u006e\\u0063\\u0065', 'unicode_escape'))
-            O0_var_49 = O0_var_47.get(codecs.decode('\\u0058\\u002d\\u0054\\u0069\\u006d\\u0065\\u0073\\u0074\\u0061\\u006d\\u0070', 'unicode_escape'))
-            O0_var_50 = O0_var_47.get(codecs.decode('\\u0058\\u002d\\u0041\\u0075\\u0074\\u0068\\u002d\\u0054\\u006f\\u006b\\u0065\\u006e', 'unicode_escape'))
+            O0_var_48 = O0_var_47.get(codecs.decode('\\u0078\\u002d\\u006e\\u006f\\u006e\\u0063\\u0065', 'unicode_escape'))
+            O0_var_49 = O0_var_47.get(codecs.decode('\\u0078\\u002d\\u0074\\u0069\\u006d\\u0065\\u0073\\u0074\\u0061\\u006d\\u0070', 'unicode_escape'))
+            O0_var_50 = O0_var_47.get(codecs.decode('\\u0078\\u002d\\u0061\\u0075\\u0074\\u0068\\u002d\\u0074\\u006f\\u006b\\u0065\\u006e', 'unicode_escape'))
             Logger.debug(codecs.decode('\\u003d', 'unicode_escape') * 50)
             Logger.debug(codecs.decode('\\u005b\\u0041\\u0075\\u0074\\u0068\\u0020\\u0044\\u0065\\u0062\\u0075\\u0067\\u005d\\u0020', 'unicode_escape') + str(request.method) + codecs.decode('\\u0020', 'unicode_escape') + str(request.url.path))
-            Logger.debug(codecs.decode('\\u0058\\u002d\\u004e\\u006f\\u006e\\u0063\\u0065\\u0020\\u0020\\u0020\\u0020\\u0020\\u003a\\u0020', 'unicode_escape') + str(O0_var_48))
-            Logger.debug(codecs.decode('\\u0058\\u002d\\u0054\\u0069\\u006d\\u0065\\u0073\\u0074\\u0061\\u006d\\u0070\\u0020\\u003a\\u0020', 'unicode_escape') + str(O0_var_49))
-            Logger.debug(codecs.decode('\\u0058\\u002d\\u0041\\u0075\\u0074\\u0068\\u002d\\u0054\\u006f\\u006b\\u0065\\u006e\\u003a\\u0020', 'unicode_escape') + str(O0_var_50[:30] if O0_var_50 else 'MISSING') + codecs.decode('\\u002e\\u002e\\u002e', 'unicode_escape'))
+            Logger.debug(codecs.decode('\\u0078\\u002d\\u006e\\u006f\\u006e\\u0063\\u0065\\u0020\\u0020\\u0020\\u0020\\u0020\\u003a\\u0020', 'unicode_escape') + str(O0_var_48))
+            Logger.debug(codecs.decode('\\u0078\\u002d\\u0074\\u0069\\u006d\\u0065\\u0073\\u0074\\u0061\\u006d\\u0070\\u0020\\u003a\\u0020', 'unicode_escape') + str(O0_var_49))
+            Logger.debug(codecs.decode('\\u0078\\u002d\\u0061\\u0075\\u0074\\u0068\\u002d\\u0074\\u006f\\u006b\\u0065\\u006e\\u003a\\u0020', 'unicode_escape') + str(O0_var_50[:30] if O0_var_50 else 'MISSING') + codecs.decode('\\u002e\\u002e\\u002e', 'unicode_escape'))
             Logger.debug(codecs.decode('\\u0041\\u006c\\u006c\\u0020\\u0048\\u0065\\u0061\\u0064\\u0065\\u0072\\u0073\\u0020\\u003a\\u0020', 'unicode_escape') + str(dict(O0_var_47)))
             Logger.debug(codecs.decode('\\u003d', 'unicode_escape') * 50)
             if not all([O0_var_48, O0_var_49, O0_var_50]):
@@ -569,7 +569,7 @@ class AuthEncryptMiddleware(BaseHTTPMiddleware):
             except Exception as e:
                 return JSONResponse(status_code=status.HTTP_401_UNAUTHORIZED, content={codecs.decode('\\u0065\\u0072\\u0072\\u006f\\u0072', 'unicode_escape'): codecs.decode('\\u0053\\u0069\\u0067\\u006e\\u0061\\u0074\\u0075\\u0072\\u0065\\u0020\\u0076\\u0065\\u0072\\u0069\\u0066\\u0069\\u0063\\u0061\\u0074\\u0069\\u006f\\u006e\\u0020\\u0066\\u0061\\u0069\\u006c\\u0065\\u0064\\u003a\\u0020', 'unicode_escape') + str(str(e))})
         O0_var_51 = None
-        if O0_var_47.get(codecs.decode('\\u0058\\u002d\\u0041\\u0045\\u0053\\u002d\\u0045\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape')) == codecs.decode('\\u0074\\u0072\\u0075\\u0065', 'unicode_escape'):
+        if O0_var_47.get(codecs.decode('\\u0078\\u002d\\u0061\\u0065\\u0073\\u002d\\u0065\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape')) == codecs.decode('\\u0074\\u0072\\u0075\\u0065', 'unicode_escape'):
             O0_var_52 = await request.body()
             Logger.debug(O0_var_52)
             if O0_var_52:
@@ -614,8 +614,8 @@ class AuthEncryptMiddleware(BaseHTTPMiddleware):
                 response.body_iterator = self._async_iter([O0_var_61])
                 response.headers[codecs.decode('\\u0063\\u006f\\u006e\\u0074\\u0065\\u006e\\u0074\\u002d\\u006c\\u0065\\u006e\\u0067\\u0074\\u0068', 'unicode_escape')] = str(len(O0_var_61))
                 if not Config.DEBUG:
-                    response.headers[codecs.decode('\\u0058\\u002d\\u0045\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape')] = codecs.decode('\\u0074\\u0072\\u0075\\u0065', 'unicode_escape')
-                    response.headers[codecs.decode('\\u0058\\u002d\\u0041\\u0067\\u0065\\u006e\\u0074\\u002d\\u0056\\u0065\\u0072\\u0073\\u0069\\u006f\\u006e', 'unicode_escape')] = Config.AGENT_VERSION
+                    response.headers[codecs.decode('\\u0078\\u002d\\u0065\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape')] = codecs.decode('\\u0074\\u0072\\u0075\\u0065', 'unicode_escape')
+                    response.headers[codecs.decode('\\u0078\\u002d\\u0061\\u0067\\u0065\\u006e\\u0074\\u002d\\u0076\\u0065\\u0072\\u0073\\u0069\\u006f\\u006e', 'unicode_escape')] = Config.AGENT_VERSION
             except json.JSONDecodeError:
                 pass
             except Exception:
@@ -981,7 +981,7 @@ class SystemInfoCollector:
     async def _fetch_ip(self, O0_var_145: str) -> str:
         O0_var_146 = aiohttp.ClientTimeout(total=5)
         async with aiohttp.ClientSession(timeout=O0_var_146) as O0_var_147:
-            async with O0_var_147.get(O0_var_145, headers={codecs.decode('\\u0055\\u0073\\u0065\\u0072\\u002d\\u0041\\u0067\\u0065\\u006e\\u0074', 'unicode_escape'): Config.AGENT_VERSION}) as response:
+            async with O0_var_147.get(O0_var_145, headers={codecs.decode('\\u0075\\u0073\\u0065\\u0072\\u002d\\u0061\\u0067\\u0065\\u006e\\u0074', 'unicode_escape'): Config.AGENT_VERSION}) as response:
                 if response.status == 200:
                     return (await response.text()).strip()
                 else:
@@ -1587,7 +1587,7 @@ async def O0_fn_2(app: FastAPI):
             pass
 app = FastAPI(title=codecs.decode('\\u0050\\u0072\\u006f\\u0078\\u0079\\u0020\\u0041\\u0067\\u0065\\u006e\\u0074\\u0020\\u0041\\u0050\\u0049', 'unicode_escape'), description=codecs.decode('\\u5355\\u6587\\u4ef6\\u90e8\\u7f72\\u7248\\u0020\\u002d\\u0020\\u652f\\u6301\\u7b7e\\u540d\\u8ba4\\u8bc1\\u4e0e\\u54cd\\u5e94\\u52a0\\u5bc6', 'unicode_escape'), version=Config.AGENT_VERSION, docs_url=codecs.decode('\\u002f\\u0064\\u006f\\u0063\\u0073', 'unicode_escape') if Config.DEBUG else None, redoc_url=None, lifespan=O0_fn_2)
 from fastapi.middleware.cors import CORSMiddleware
-app.add_middleware(CORSMiddleware, allow_origins=[codecs.decode('\\u002a', 'unicode_escape')], allow_methods=[codecs.decode('\\u002a', 'unicode_escape')], allow_headers=[codecs.decode('\\u002a', 'unicode_escape')], expose_headers=[codecs.decode('\\u0058\\u002d\\u0045\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape')])
+app.add_middleware(CORSMiddleware, allow_origins=[codecs.decode('\\u002a', 'unicode_escape')], allow_methods=[codecs.decode('\\u002a', 'unicode_escape')], allow_headers=[codecs.decode('\\u002a', 'unicode_escape')], expose_headers=[codecs.decode('\\u0078\\u002d\\u0065\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape')])
 app.add_middleware(AuthEncryptMiddleware)
 
 async def O0_fn_3(request: Request) -> ExecRequestJSON:
@@ -1878,7 +1878,7 @@ async def O0_fn_11(request: Request, body: FileDownloadRequest=Body(...)):
     O0_var_345 = request.app.state.file_manager
     O0_var_346, O0_var_347, O0_var_348 = O0_var_345.download_file(body.path)
     from fastapi.responses import FileResponse
-    return FileResponse(path=str(O0_var_346), filename=O0_var_346.name, media_type=O0_var_347, headers={codecs.decode('\\u0058\\u002d\\u0046\\u0069\\u006c\\u0065\\u002d\\u0053\\u0069\\u007a\\u0065', 'unicode_escape'): str(O0_var_348), codecs.decode('\\u0058\\u002d\\u004f\\u0072\\u0069\\u0067\\u0069\\u006e\\u0061\\u006c\\u002d\\u0050\\u0061\\u0074\\u0068', 'unicode_escape'): str(O0_var_346.relative_to(Path(Config.FILE_ROOT)))})
+    return FileResponse(path=str(O0_var_346), filename=O0_var_346.name, media_type=O0_var_347, headers={codecs.decode('\\u0078\\u002d\\u0066\\u0069\\u006c\\u0065\\u002d\\u0073\\u0069\\u007a\\u0065', 'unicode_escape'): str(O0_var_348), codecs.decode('\\u0078\\u002d\\u006f\\u0072\\u0069\\u0067\\u0069\\u006e\\u0061\\u006c\\u002d\\u0070\\u0061\\u0074\\u0068', 'unicode_escape'): str(O0_var_346.relative_to(Path(Config.FILE_ROOT)))})
 
 @app.delete(codecs.decode('\\u002f\\u0061\\u0070\\u0069\\u002f\\u0066\\u0069\\u006c\\u0065', 'unicode_escape'), response_model=FileDeleteResponse)
 async def O0_fn_12(request: Request, body: FileDeleteRequest=Body(...)):
@@ -2006,7 +2006,7 @@ async def O0_fn_30(websocket: WebSocket, path: str, request_id: str=Query(...), 
 async def O0_fn_31(request: Request, exc: HTTPException):
     O0_var_376 = {codecs.decode('\\u0065\\u0072\\u0072\\u006f\\u0072', 'unicode_escape'): exc.detail, codecs.decode('\\u0063\\u006f\\u0064\\u0065', 'unicode_escape'): exc.status_code}
     O0_var_377 = crypto.encrypt_response(O0_var_376) if not Config.DEBUG else json.dumps(O0_var_376)
-    return JSONResponse(status_code=exc.status_code, content=json.loads(O0_var_377) if Config.DEBUG else {codecs.decode('\\u005f\\u0065\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape'): O0_var_377}, headers={codecs.decode('\\u0058\\u002d\\u0045\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape'): codecs.decode('\\u0066\\u0061\\u006c\\u0073\\u0065', 'unicode_escape') if Config.DEBUG else codecs.decode('\\u0074\\u0072\\u0075\\u0065', 'unicode_escape')})
+    return JSONResponse(status_code=exc.status_code, content=json.loads(O0_var_377) if Config.DEBUG else {codecs.decode('\\u005f\\u0065\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape'): O0_var_377}, headers={codecs.decode('\\u0078\\u002d\\u0065\\u006e\\u0063\\u0072\\u0079\\u0070\\u0074\\u0065\\u0064', 'unicode_escape'): codecs.decode('\\u0066\\u0061\\u006c\\u0073\\u0065', 'unicode_escape') if Config.DEBUG else codecs.decode('\\u0074\\u0072\\u0075\\u0065', 'unicode_escape')})
 
 def O0_fn_32():
     Config.validate()
