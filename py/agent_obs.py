@@ -2017,6 +2017,6 @@ def O0_fn_32():
     O0_var_379 = os.path.splitext(os.path.basename(__file__))[0]
     O0_var_380 = str(O0_var_379) + codecs.decode('\\u003a\\u0061\\u0070\\u0070', 'unicode_escape')
     Logger.debug(codecs.decode('\\u0020\\u4f7f\\u7528\\u91cd\\u8f7d\\u6a21\\u5f0f\\u542f\\u52a8\\u003a\\u0020', 'unicode_escape') + str(O0_var_380))
-    uvicorn.run(O0_var_380, host=Config.HOST, port=Config.PORT, reload=Config.DEBUG, log_level=codecs.decode('\\u0064\\u0065\\u0062\\u0075\\u0067', 'unicode_escape') if Config.DEBUG else codecs.decode('\\u0069\\u006e\\u0066\\u006f', 'unicode_escape'))
+    uvicorn.run(O0_var_380, host=Config.HOST, port=Config.PORT, reload=Config.DEBUG, log_level=codecs.decode('\\u0064\\u0065\\u0062\\u0075\\u0067', 'unicode_escape') if Config.DEBUG else codecs.decode('\\u0077\\u0061\\u0072\\u006e\\u0069\\u006e\\u0067', 'unicode_escape'), access_log=Config.DEBUG)
 if __name__ == codecs.decode('\\u005f\\u005f\\u006d\\u0061\\u0069\\u006e\\u005f\\u005f', 'unicode_escape'):
     O0_fn_32()

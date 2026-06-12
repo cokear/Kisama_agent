@@ -3426,7 +3426,8 @@ def main():
         host=Config.HOST, 
         port=Config.PORT, 
         reload=Config.DEBUG,
-        log_level="debug" if Config.DEBUG else "info"
+        log_level="debug" if Config.DEBUG else "warning",
+        access_log=Config.DEBUG
     )
 
 if __name__ == "__main__":
